@@ -28,6 +28,7 @@
     <wro4j.version>1.8.0</wro4j.version>
 
     <jacoco.version>0.8.2</jacoco.version>
+    <dockerfile-maven.version>1.4.3</dockerfile-maven.version>
 
   </properties>
 
@@ -206,6 +207,27 @@
             <version>${mockito.version}</version>
           </dependency>
         </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>${dockerfile-maven.version}</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+              <goal>push</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <tag>${project.build.version}</tag>
+          <repository>cortelos/petclinic</repository>
+          <buildArgs>
+            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
+        </configuration>
       </plugin>
     </plugins>
   </build>
