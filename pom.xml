@@ -240,6 +240,23 @@
     </license>
   </licenses>
 
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>public-releases</id>
+      <name>public-releases</name>
+      <url>https://nexus-service.nexus.svc.kubernetes.local/repository/public-releases/</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>true</uniqueVersion>
+      <id>public-snapshots</id>
+      <name>public-snapshots</name>
+      <url>https://nexus-service.nexus.svc.kubernetes.local/repository/public-snapshots/</url>
+      <layout>default</layout>
+    </snapshotRepository>
+  </distributionManagement>
+
   <repositories>
     <repository>
       <id>spring-snapshots</id>
